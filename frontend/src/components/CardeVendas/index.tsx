@@ -21,9 +21,7 @@ function CardeVendas() {
     useEffect(() => {
 
         const dmin = minData.toISOString().slice(0,10);
-        const dmax = maxData.toISOString().slice(0,10);
-        console.log(dmin);
-        
+        const dmax = maxData.toISOString().slice(0,10);        
 
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`).then(response => {
             setSales(response.data.content);
@@ -77,7 +75,7 @@ function CardeVendas() {
                                     <td>R$ {sale.amount.toFixed(2)}</td>
                                     <td>
                                         <div className="dsmeta-red-btn-container">
-                                            <NotificationButton />
+                                            <NotificationButton saleId={sale.id}/>
                                         </div>
                                     </td>
                                 </tr>
