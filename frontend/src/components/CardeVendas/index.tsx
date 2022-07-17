@@ -1,26 +1,35 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import NotificationButton from '../NotificationButton'
-import './styles.css'
+import NotificationButton from '../NotificationButton';
+import './styles.css';
 
 function CardeVendas() {
+
+    //data com 1 ano atras
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date();
+
+    const [minData, setMinData] = useState(min);
+    const [maxData, setMaxData] = useState(max);
+    
     return (
         <div className="dsmeta-card">
             <h2 className="dsmeta-vendas-titulo">Vendas</h2>
             <div>
                 <div className="dsmeta-form-controle-container">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
-                        className="dsmeta-form-control"
+                        selected={minData}
+                        onChange={(date: Date) => setMinData(date)}
+                        className="dsmeta-form-controle"
                         dateFormat="dd/MM/yyyy"
                     />
                 </div>
                 <div className="dsmeta-form-controle-container">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
-                        className="dsmeta-form-control"
+                        selected={maxData}
+                        onChange={(date: Date) => setMaxData(date)}
+                        className="dsmeta-form-controle"
                         dateFormat="dd/MM/yyyy"
                     />
                 </div>
@@ -86,4 +95,4 @@ function CardeVendas() {
     )
 }
 
-export default CardeVendas
+export default CardeVendas;

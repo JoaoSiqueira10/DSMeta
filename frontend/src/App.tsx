@@ -1,5 +1,5 @@
-import Header from "./components/Header"
-import CardeVendas from "./components/CardeVendas"
+import Header from "./components/Header";
+import CardeVendas from "./components/CardeVendas";
 
 
 function App() {
@@ -17,4 +17,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
